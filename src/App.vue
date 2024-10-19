@@ -1,26 +1,34 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+<script setup>
+  import { userSelectionStore } from '@/stores/userSelection';
+  import StepOne from './components/StepOne.vue';
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+  const user_store = userSelectionStore();
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
 </script>
 
+<template>
+  <v-container>
+    <v-row justify="center">
+      <v-img contain height="75px" src="'../../../images/chapter_logo.png"></v-img>
+    </v-row>
+
+    <StepOne v-if="user_store.step_counter == 1"/>
+
+    <v-row class="mt-10" justify="center">
+      <v-btn
+        fab
+        icon
+        elevation="5"
+        @click="user_store.attempt_next_step()"
+      >
+        <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
+    </v-row>
+    
+  </v-container>
+</template>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
