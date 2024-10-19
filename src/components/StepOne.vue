@@ -24,13 +24,15 @@
       <v-col cols="12" class="text-center">
         <h3 style="font-family:Orbitron">What kind of training are you doing today?</h3>
       </v-col>
-      <v-col cols="auto" v-for="(p) in practice_types" :key="p.value">
+      <v-col cols="12" class="text-center" v-for="(p) in practice_types" :key="p.value">
         <v-btn 
+          flat
+          outlined
           rounded
-          elevation="5"
+          :class="user_store.selections.dry_vs_live == p.value ? '' : 'border'"
           :color="user_store.selections.dry_vs_live == p.value ? 'primary' : null"
           @click="set_type(p.value)"
-          tile
+          :ripple="false"
         >
           {{p.text}}
         </v-btn>
