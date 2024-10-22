@@ -17,6 +17,7 @@ export const userSelectionStore = defineStore('userSelection', () => {
   };
 
   const attempt_next_step = () => {
+    console.log(step_counter.value)
     switch (step_counter.value) {
       case 1: 
         if (selections.dry_vs_live != null) {
@@ -26,7 +27,11 @@ export const userSelectionStore = defineStore('userSelection', () => {
       case 2: 
         if (selections.move_vs_static != null) {
           step_counter.value = 3;
-          console.log(123);
+        }
+        break;
+      case 3: 
+        if (selections.category_selections.length > 0) {
+          step_counter.value = 4;
         }
         break;
       default:

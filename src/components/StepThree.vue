@@ -35,7 +35,7 @@
   <div>
     <v-row justify="center" class="mt-15 pt-15">
       <v-col cols="12" class="text-center pb-3">
-        <h3 style="font-family:Orbitron">What types of things are you looking to work on?</h3>
+        <h3 style="font-family:Orbitron">Select some drill categories to include:</h3>
       </v-col>
       <v-col cols="12" class="text-center py-1" v-for="(l) in category_list" :key="l.value">
         <v-btn
