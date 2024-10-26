@@ -12,12 +12,24 @@
       value: 'recoil_control'
     },
     {
+      text: "Draw Speed",
+      value: 'draw_speed'
+    },
+    {
       text: "Reloads",
       value: 'reloads'
     },
     {
       text: "Target Transitions",
       value: 'transitions'
+    },
+    {
+      text: "Time Pressure",
+      value: 'time_pressure'
+    },
+    {
+      text: "Trigger Control",
+      value: 'trigger_control'
     }
   ]);
 

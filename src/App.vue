@@ -57,6 +57,7 @@
         elevation="5"
         @click="user_store.reset_all()"
         v-if="user_store.step_counter == 5"
+        class="mb-10"
       >
         <v-icon>mdi-restart</v-icon>
       </v-btn>
