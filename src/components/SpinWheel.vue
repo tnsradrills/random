@@ -1,6 +1,7 @@
 <script setup>
   import { userSelectionStore } from '@/stores/userSelection';
-  import { onMounted, ref} from 'vue';
+  import { onMounted, ref, defineProps} from 'vue';
+  const props = defineProps(['millie1', 'millie2']);
   const user_store = userSelectionStore();
   const wheel = ref(null);
   const hexToHsl = (hex, lightnessReduction = 6.9) => {
@@ -79,8 +80,8 @@
       </div>
     </div>
     <div class="millie-position">
-      <v-img v-if="!show_spin" height="50%" width="50%" src="/images/millie_spin_ready.png"></v-img>
-      <v-img v-if="show_spin" height="50%" width="50%" src="/images/millie_spin.png"></v-img>
+      <v-img v-if="!show_spin" height="50%" width="50%" :src="props.millie1"></v-img>
+      <v-img v-if="show_spin" height="50%" width="50%" :src="props.millie2"></v-img>
     </div>
   </div>
 </template>

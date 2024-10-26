@@ -5,6 +5,8 @@
   import StepThree from './components/StepThree.vue';
   import SpinWheel from "./components/SpinWheel.vue";
   import Logo from '../src/assets/images/chapter_logo.png';
+  import Millie1 from '../src/assets/images/millie_spin_ready.png';
+  import Millie2 from '../src/assets/images/millie_spin.png';
   import DrillPage from './components/DrillPage.vue';
   const user_store = userSelectionStore();
 </script>
@@ -25,7 +27,7 @@
 
     <div v-if="user_store.step_counter > 3">
       <v-scale-transition group mode="out-in">
-        <SpinWheel :key="1" v-if="user_store.step_counter == 4"/>
+        <SpinWheel :millie1="Millie1" :millie2="Millie2" :key="1" v-if="user_store.step_counter == 4"/>
         <DrillPage :key="2" v-if="user_store.step_counter == 5"/>
       </v-scale-transition>
     </div>
