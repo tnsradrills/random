@@ -18,9 +18,9 @@
         'time_pressure',
         'draw_speed',
       ],
-      recommended_distance: 7,
+      recommended_distances: [5, 7, 10],
       recommended_targets: ['IPSC', 'USPSA'],
-      description: 'Begin with your firearm holstered or in the low-ready position if drawing from a holster is not allowed. On the start signal, draw and place 6 rounds into the A zone (or -0 zone) of your target as quickly and accurately as possible.',
+      description: 'For live fire, you will need 6 rounds in your magazine. When ready to begin, holster or assume the low-ready position. On the start signal, draw and place 6 rounds into the A zone (or -0 zone) of your target as quickly and accurately as possible.',
       recommended_par: [
         {type: 'Standard', par: '3.5 seconds',},
         {type: 'Challenging', par: '2.5 or fewer seconds'}
@@ -39,9 +39,9 @@
         'draw_speed',
         'time_pressure'
       ],
-      recommended_distance: 10,
+      recommended_distances: [10],
       recommended_targets: ['B8'],
-      description: 'Begin with your firearm holstered or in the low-ready position if drawing from a holster is not allowed. On the start signal, draw and place 10 shots on the target. All shots should occur inside the 10 second time limit. Score hits as shown on the target.',
+      description: 'For live fire, you will need 10 rounds in your magazine. When ready to begin, holster or assume the low-ready position. On the start signal, draw and place 10 shots on the target. All shots need to occur inside the 10 second time limit. Score hits as shown on the target.',
       recommended_par: [
         {type: 'Standard', par: 'Score 80 points or better',},
         {type: 'Challenging', par: 'Score 100 points'}
@@ -59,19 +59,84 @@
         'time_pressure',
         'trigger_control'
       ],
-      recommended_distance: 0,
+      recommended_distances: ['Any'],
       recommended_targets: ['Any'],
-      description: 'Trigger Control at Speed is an isolation drill working on getting a smooth trigger pull while still maintaining speed. Using a shot timer or another signaling method, with no par time, pull the trigger as quickly as possible at the signal. To further isolate the trigger control, do not incorporate a target and focus on your sight alignment; try not to affect your sight alignment while still pulling the trigger as fast as possible.',
+      description: 'Using a shot timer or another signaling method, with no par time, pull the trigger as quickly as possible at the signal. The goal of this drill is working on getting a smooth trigger pull while still maintaining speed. To further isolate the trigger control, do not incorporate a target and focus on your sight alignment; try not to affect your sight alignment while still pulling the trigger as fast as possible.',
       recommended_par: []
+    },
+    {
+      title: 'One-Reload-One',
+      joke: 'Reload fast, hit faster.',
+      dry: true,
+      live: true,
+      moving: false,
+      shot_timer_rec: true,
+      categories: [
+        'time_pressure',
+        'reloads',
+        'draw_speed'
+      ],
+      recommended_distances: [5, 7, 10, 15],
+      recommended_targets: ['USPSA', 'IDPA'],
+      description: 'You will need a two magazines for this drill. For live fire, load both magazines with 1 round each. For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. When ready to begin, holster or assume the low-ready position. On the start signal, draw and place 1 round into the A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.',
+      recommended_par: [
+        {type: 'Standard', par: '4.5 seconds',},
+        {type: 'Challenging', par: '3.25 or fewer seconds'}
+      ]
+    },
+    {
+      title: 'Double-Reload-Double',
+      joke: 'Double down.',
+      dry: true,
+      live: true,
+      moving: false,
+      shot_timer_rec: true,
+      categories: [
+        'time_pressure',
+        'reloads',
+        'recoil_control',
+        'draw_speed',
+      ],
+      recommended_distances: [5, 7, 10, 15],
+      recommended_targets: ['USPSA', 'IDPA'],
+      description: 'You will need a two magazines for this drill. For live fire, load both magazines with 2 rounds each. For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. When ready to begin, holster or assume the low-ready position. On the start signal, draw and place 1 round into the A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.',
+      recommended_par: [
+        {type: 'Standard', par: '4.75 seconds',},
+        {type: 'Challenging', par: '3.25 or fewer seconds'}
+      ]
     },
   ]);
 
   const selected_drill = ref(null)
 
   const select_drill = () => {
-    const random_object = drills.value[Math.floor(Math.random() * 3)];
-    selected_drill.value = random_object;
-  }
+    // Filter drills based on user selections
+    const possible_drills = drills.value.filter(d => {
+      // Check dry vs live compatibility
+      const isTypeCompatible = (user_store.selections.dry_vs_live === 'dry' && d.dry) || (user_store.selections.dry_vs_live === 'live' && d.live);
+
+      // Check movement requirement compatibility
+      const isMovementCompatible = user_store.selections.move_vs_static === 'move_allowed' || (user_store.selections.move_vs_static === 'static' && d.moving == false);
+
+      // Check category compatibility
+      const isCategoryCompatible = user_store.selections.category_selections.some(value => d.categories.includes(value));
+
+      // Return true if all conditions are met
+      console.log(d);
+      console.log(isTypeCompatible);
+      console.log(isMovementCompatible);
+      console.log(isCategoryCompatible);
+      return isTypeCompatible && isMovementCompatible && isCategoryCompatible;
+    });
+
+    // Select a random object if any match, otherwise handle no matches
+    if (possible_drills.length > 0) {
+      const random_object = possible_drills[Math.floor(Math.random() * possible_drills.length)];
+      selected_drill.value = random_object;
+    } else {
+      selected_drill.value = null; // or handle as needed if no matches are found
+    }
+  };
 
 
   onMounted(() => {
@@ -129,13 +194,11 @@
               <v-card-text>
                 <v-row>
                   <v-col cols="12" class="text-subtitle-1 pb-0">
-                    Recommended Distance
+                    Recommended Distances
                   </v-col>
-                  <v-col cols="12" class="text-subtitle-2 pt-1" v-if="selected_drill.recommended_distance != 0">
-                    {{selected_drill.recommended_distance + " " + "yards"}}
-                  </v-col>
-                  <v-col cols="12" class="text-subtitle-2 pt-1" v-else>
-                    Any
+                  <v-col v-for="(t, i) in selected_drill.recommended_distances" :key="i" cols="12" class="text-subtitle-2 py-1">
+                    <span v-if="t =='Any'">{{t}}</span>
+                    <span v-else>{{t + " yards"}}</span>
                   </v-col>
                 </v-row>
                 <v-row>

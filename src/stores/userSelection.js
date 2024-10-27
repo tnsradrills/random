@@ -30,7 +30,7 @@ export const userSelectionStore = defineStore('userSelection', () => {
         }
         break;
       case 3: 
-        if (selections.category_selections.length > 0) {
+        if (selections.category_selections.length > 1) {
           step_counter.value = 4;
         }
         break;
