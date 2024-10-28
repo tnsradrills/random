@@ -78,7 +78,11 @@
       ],
       recommended_distances: [5, 7, 10, 15],
       recommended_targets: ['USPSA', 'IDPA'],
-      description: 'You will need a two magazines for this drill. For live fire, load both magazines with 1 round each. For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. When ready to begin, holster or assume the low-ready position. On the start signal, draw and place 1 round into the A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.',
+      description: `You will need 2 magazines for this drill. 
+        For live fire, load both magazines with 1 round each. 
+        For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. 
+        When ready to begin, holster or assume the low-ready position. 
+        On the start signal, draw and place 1 round into the A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.`,
       recommended_par: [
         {type: 'Standard', par: '4.5 seconds',},
         {type: 'Challenging', par: '3.25 or fewer seconds'}
@@ -99,10 +103,66 @@
       ],
       recommended_distances: [5, 7, 10, 15],
       recommended_targets: ['USPSA', 'IDPA'],
-      description: 'You will need a two magazines for this drill. For live fire, load both magazines with 2 rounds each. For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. When ready to begin, holster or assume the low-ready position. On the start signal, draw and place 1 round into the A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.',
+      description: `You will need 2 magazines for this drill. 
+        For live fire, load both magazines with 2 rounds each. 
+        For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. 
+        When ready to begin, holster or assume the low-ready position. 
+        On the start signal, draw and place 1 round into the A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.`,
       recommended_par: [
-        {type: 'Standard', par: '4.75 seconds',},
-        {type: 'Challenging', par: '3.25 or fewer seconds'}
+        {type: 'Standard', par: '5 seconds',},
+        {type: 'Challenging', par: '3.75 or fewer seconds'}
+      ]
+    },
+    {
+      title: '90 Degree Transitions',
+      joke: 'Pick a side.',
+      dry: true,
+      live: true,
+      moving: true,
+      shot_timer_rec: true,
+      categories: [
+        'time_pressure',
+        'recoil_control',
+        'transitions'
+      ],
+      recommended_distances: [5, 7, 10],
+      recommended_targets: ['USPSA', 'IDPA'],
+      description: `You will need 2 targets for this drill. 
+        Set your targets up so that they require you make an approximate 90 degree turn to engage whichever target you are not facing; for dry fire, using the corner of a room will help accomplish this. 
+        For live fire, ensure that downrange of both targets and the space between them is safe for this drill before proceeding. 
+        When ready to begin, assume the low-ready position. 
+        On the start signal, place 2 rounds into the A zone (or -0 zone) of the first target, then turn and engage the second target in the same manner. 
+        Alternate which target you engage first.`,
+      recommended_par: [
+        {type: 'Standard', par: '2.5 seconds',},
+        {type: 'Challenging', par: '1.75 or fewer seconds'}
+      ]
+    },
+    {
+      title: 'El Presidente',
+      joke: 'Welcome to the presidential fitness test for shooters.',
+      dry: true,
+      live: true,
+      moving: true,
+      shot_timer_rec: true,
+      categories: [
+        'time_pressure',
+        'recoil_control',
+        'transitions',
+        'accuracy',
+        'reloads'
+      ],
+      recommended_distances: [7, 10],
+      recommended_targets: ['USPSA', 'IDPA'],
+      description: `You will need 3 targets and 2 magazines for this drill. 
+        Set your targets up so that they are parallel to the firing line and approximately one yard apart from each other. 
+        For live fire, load your magazines so that each one contains 6 rounds.
+        When ready to begin, holster, face away from the targets, and raise your hands a few inches above your head (the surrender position). 
+        On the start signal, turn and place 2 rounds into the A zone (or -0 zone) of each target, perform a reload, then place 2 more rounds into the same zone of each target. 
+        Targets can be shot from left-to-right or right-to-left at your preference, but all targets must be shot 4 times each at the conclusion of the drill.`,
+      recommended_par: [
+        {type: 'Standard', par: '10 seconds',},
+        {type: 'Challenging', par: '7 or fewer seconds'}
       ]
     },
   ]);
@@ -129,13 +189,9 @@
       return isTypeCompatible && isMovementCompatible && isCategoryCompatible;
     });
 
-    // Select a random object if any match, otherwise handle no matches
-    if (possible_drills.length > 0) {
-      const random_object = possible_drills[Math.floor(Math.random() * possible_drills.length)];
-      selected_drill.value = random_object;
-    } else {
-      selected_drill.value = null; // or handle as needed if no matches are found
-    }
+    // Select a random object
+    const random_object = possible_drills[Math.floor(Math.random() * possible_drills.length)];
+    selected_drill.value = random_object;
   };
 
 
@@ -157,7 +213,7 @@
 
     <v-row v-if="selected_drill != null">
       <v-col cols="12">
-        <v-card>
+        <v-card elevation="5">
           <v-card-title style="font-family: Orbitron;">{{selected_drill.title}}</v-card-title>
           <v-card-subtitle>
             {{selected_drill.joke}}
@@ -196,7 +252,7 @@
                   <v-col cols="12" class="text-subtitle-1 pb-0">
                     Recommended Distances
                   </v-col>
-                  <v-col v-for="(t, i) in selected_drill.recommended_distances" :key="i" cols="12" class="text-subtitle-2 py-1">
+                  <v-col v-for="(t, i) in selected_drill.recommended_distances" :key="i" cols="12" class="text-subtitle-2 py-0">
                     <span v-if="t =='Any'">{{t}}</span>
                     <span v-else>{{t + " yards"}}</span>
                   </v-col>
@@ -205,7 +261,7 @@
                   <v-col cols="12" class="text-subtitle-1 pb-0">
                     Recommended Target Styles
                   </v-col>
-                  <v-col v-for="(t, i) in selected_drill.recommended_targets" :key="i" cols="12" class="text-subtitle-2 py-1">
+                  <v-col v-for="(t, i) in selected_drill.recommended_targets" :key="i" cols="12" class="text-subtitle-2 py-0">
                     {{t}}
                   </v-col>
                 </v-row>

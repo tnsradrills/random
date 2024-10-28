@@ -67,12 +67,15 @@
         <div class="center-axis"></div>
         <div class="wheel" ref="wheel">
           <span
-            v-for="i in 20"
+            v-for="i in 10"
             :key="i"
             :style="{
               '--i': (i - 1),
               backgroundColor: colors[(i - 1) % colors.length],
-              clipPath: `polygon(50% 50%, ${50 + 50 * Math.cos(2 * Math.PI * (i - 1) / 20)}% ${50 + 50 * Math.sin(2 * Math.PI * (i - 1) / 20)}%, ${50 + 50 * Math.cos(2 * Math.PI * i / 20)}% ${50 + 50 * Math.sin(2 * Math.PI * i / 20)}%)`
+              clipPath: `polygon(50% 50%, 
+                ${50 + 55 * Math.cos(2 * Math.PI * (i - 1) / 10)}% ${50 + 55 * Math.sin(2 * Math.PI * (i - 1) / 10)}%, 
+                ${50 + 55 * Math.cos(2 * Math.PI * i / 10)}% ${50 + 55 * Math.sin(2 * Math.PI * i / 10)}%
+              )`
             }"
           >
           </span>
@@ -80,8 +83,8 @@
       </div>
     </div>
     <div class="millie-position">
-      <v-img v-if="!show_spin" height="50%" width="50%" :src="props.millie1"></v-img>
-      <v-img v-if="show_spin" height="50%" width="50%" :src="props.millie2"></v-img>
+      <img v-if="!show_spin" height="50%" width="50%" :src="props.millie1"><img>
+      <img v-if="show_spin" height="50%" width="50%" :src="props.millie2"><img>
     </div>
   </div>
 </template>
@@ -141,8 +144,8 @@
 
   .center-axis {
     position: absolute;
-    inset: 135px;
-    background: #eaeaea;
+    inset: 130px;
+    background: #fafafa;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -154,11 +157,11 @@
     position: absolute;
     max-width: 300px;
     max-height: 300px;
-    min-width: 150px;
-    min-height: 150px;
+    min-width: 300px;
+    min-height: 300px;
     display: flex;
     justify-content: center;
-    top: 420px;
-    left: calc(69px + ((100vw - 50px) / 50 * 25));
+    top: 410px;
+    left: calc(25px + ((100vw - 50px) / 50 * 25));
   }
 </style>

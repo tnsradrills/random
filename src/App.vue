@@ -1,4 +1,5 @@
 <script setup>
+  import { onMounted } from 'vue' ;
   import { userSelectionStore } from '@/stores/userSelection';
   import StepOne from './components/StepOne.vue';
   import StepTwo from './components/StepTwo.vue';
@@ -9,6 +10,14 @@
   import Millie2 from '../src/assets/images/millie_spin.png';
   import DrillPage from './components/DrillPage.vue';
   const user_store = userSelectionStore();
+
+  onMounted(() => {
+    const preloadImages = [Millie1, Millie2];
+    preloadImages.forEach((imageSrc) => {
+      const img = new Image();
+      img.src = imageSrc;
+    });
+  });
 </script>
 
 <template>
