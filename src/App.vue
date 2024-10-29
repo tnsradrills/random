@@ -1,5 +1,5 @@
 <script setup>
-  import { onMounted } from 'vue' ;
+  import { onMounted, reactive } from 'vue' ;
   import { userSelectionStore } from '@/stores/userSelection';
   import StepOne from './components/StepOne.vue';
   import StepTwo from './components/StepTwo.vue';
@@ -10,7 +10,9 @@
   import Millie2 from '../src/assets/images/millie_spin.png';
   import DrillPage from './components/DrillPage.vue';
   const user_store = userSelectionStore();
-
+  const drill_imgs = reactive({
+    bill_drill: 1234
+  })
   onMounted(() => {
     const preloadImages = [Millie1, Millie2];
     preloadImages.forEach((imageSrc) => {
@@ -37,7 +39,7 @@
     <div v-if="user_store.step_counter > 3">
       <v-scale-transition group mode="out-in">
         <SpinWheel :millie1="Millie1" :millie2="Millie2" :key="1" v-if="user_store.step_counter == 4"/>
-        <DrillPage :key="2" v-if="user_store.step_counter == 5"/>
+        <DrillPage :key="2" :drill_imgs="drill_imgs" v-if="user_store.step_counter == 5"/>
       </v-scale-transition>
     </div>
 

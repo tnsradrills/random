@@ -1,6 +1,11 @@
 <script setup>
-  import { onMounted, ref } from 'vue';
+  import { onMounted, ref, } from 'vue';
   import { userSelectionStore } from '@/stores/userSelection';
+  import BillDrillImg from '@/assets/images/bill_drill.jpg';
+  import ElPresImg from '@/assets/images/el_pres.jpg';
+  import TenTenTen from '@/assets/images/10_10_10.jpg';
+  import NinetyDeg from '@/assets/images/90_deg_transitions.png';
+  import FailureToStop from '@/assets/images/failure_to_stop.jpg';
   const user_store = userSelectionStore();
   const show_explaination = ref(false);
   const drills = ref([
@@ -12,7 +17,6 @@
       moving: false,
       shot_timer_rec: true,
       categories: [
-        'accuracy',
         'recoil_control',
         'draw_speed',
         'time_pressure',
@@ -20,11 +24,14 @@
       ],
       recommended_distances: [5, 7, 10],
       recommended_targets: ['IPSC', 'USPSA'],
-      description: 'For live fire, you will need 6 rounds in your magazine. When ready to begin, holster or assume the low-ready position. On the start signal, draw and place 6 rounds into the A zone (or -0 zone) of your target as quickly and accurately as possible.',
+      description: `For live fire, you will need at least 6 rounds in your magazine. 
+        When ready to begin, holster or assume the low-ready position. 
+        On the start signal, draw and place 6 rounds into the largest A zone (or -0 zone) of your target as quickly and accurately as possible.`,
       recommended_par: [
         {type: 'Standard', par: '3.5 seconds',},
         {type: 'Challenging', par: '2.5 or fewer seconds'}
-      ]
+      ],
+      image: BillDrillImg
     },
     {
       title: '10-10-10',
@@ -41,11 +48,15 @@
       ],
       recommended_distances: [10],
       recommended_targets: ['B8'],
-      description: 'For live fire, you will need 10 rounds in your magazine. When ready to begin, holster or assume the low-ready position. On the start signal, draw and place 10 shots on the target. All shots need to occur inside the 10 second time limit. Score hits as shown on the target.',
+      description: `For live fire, you will need at least 10 rounds in your magazine. 
+        When ready to begin, holster or assume the low-ready position. 
+        On the start signal, draw and place 10 shots on the target. 
+        All shots need to occur inside the 10 second time limit. Score hits as shown on the target.`,
       recommended_par: [
         {type: 'Standard', par: 'Score 80 points or better',},
         {type: 'Challenging', par: 'Score 100 points'}
-      ]
+      ],
+      image: TenTenTen
     },
     {
       title: 'Trigger Control At Speed',
@@ -61,8 +72,12 @@
       ],
       recommended_distances: ['Any'],
       recommended_targets: ['Any'],
-      description: 'Using a shot timer or another signaling method, with no par time, pull the trigger as quickly as possible at the signal. The goal of this drill is working on getting a smooth trigger pull while still maintaining speed. To further isolate the trigger control, do not incorporate a target and focus on your sight alignment; try not to affect your sight alignment while still pulling the trigger as fast as possible.',
-      recommended_par: []
+      description: `Using a shot timer or another signaling method, with no par time, pull the trigger as quickly as possible at the signal. 
+        The goal of this drill is working on getting a smooth trigger pull while still maintaining speed. 
+        To further isolate the trigger control, do not incorporate a target and focus on your sight alignment; 
+        try not to affect your sight alignment while still pulling the trigger as fast as possible.`,
+      recommended_par: [],
+      image: null
     },
     {
       title: 'One-Reload-One',
@@ -82,11 +97,12 @@
         For live fire, load both magazines with 1 round each. 
         For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. 
         When ready to begin, holster or assume the low-ready position. 
-        On the start signal, draw and place 1 round into the A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.`,
+        On the start signal, draw and place 1 round into the largest A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.`,
       recommended_par: [
         {type: 'Standard', par: '4.5 seconds',},
         {type: 'Challenging', par: '3.25 or fewer seconds'}
-      ]
+      ],
+      image: null
     },
     {
       title: 'Double-Reload-Double',
@@ -99,7 +115,6 @@
         'time_pressure',
         'reloads',
         'recoil_control',
-        'draw_speed',
       ],
       recommended_distances: [5, 7, 10, 15],
       recommended_targets: ['USPSA', 'IDPA'],
@@ -107,11 +122,12 @@
         For live fire, load both magazines with 2 rounds each. 
         For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. 
         When ready to begin, holster or assume the low-ready position. 
-        On the start signal, draw and place 1 round into the A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.`,
+        On the start signal, draw and place 1 round into the largest A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.`,
       recommended_par: [
         {type: 'Standard', par: '5 seconds',},
         {type: 'Challenging', par: '3.75 or fewer seconds'}
-      ]
+      ],
+      image: null
     },
     {
       title: '90 Degree Transitions',
@@ -121,7 +137,6 @@
       moving: true,
       shot_timer_rec: true,
       categories: [
-        'time_pressure',
         'recoil_control',
         'transitions'
       ],
@@ -129,14 +144,15 @@
       recommended_targets: ['USPSA', 'IDPA'],
       description: `You will need 2 targets for this drill. 
         Set your targets up so that they require you make an approximate 90 degree turn to engage whichever target you are not facing; for dry fire, using the corner of a room will help accomplish this. 
-        For live fire, ensure that downrange of both targets and the space between them is safe for this drill before proceeding. 
+        For live fire, you will need at least 4 rounds in your magazine; ensure that downrange of both targets and the space between them is safe for this drill before proceeding. 
         When ready to begin, assume the low-ready position. 
-        On the start signal, place 2 rounds into the A zone (or -0 zone) of the first target, then turn and engage the second target in the same manner. 
+        On the start signal, place 2 rounds into the largest A zone (or -0 zone) of the first target, then turn and engage the second target in the same manner. 
         Alternate which target you engage first.`,
       recommended_par: [
         {type: 'Standard', par: '2.5 seconds',},
         {type: 'Challenging', par: '1.75 or fewer seconds'}
-      ]
+      ],
+      image: NinetyDeg
     },
     {
       title: 'El Presidente',
@@ -146,10 +162,8 @@
       moving: true,
       shot_timer_rec: true,
       categories: [
-        'time_pressure',
         'recoil_control',
         'transitions',
-        'accuracy',
         'reloads'
       ],
       recommended_distances: [7, 10],
@@ -158,12 +172,80 @@
         Set your targets up so that they are parallel to the firing line and approximately one yard apart from each other. 
         For live fire, load your magazines so that each one contains 6 rounds.
         When ready to begin, holster, face away from the targets, and raise your hands a few inches above your head (the surrender position). 
-        On the start signal, turn and place 2 rounds into the A zone (or -0 zone) of each target, perform a reload, then place 2 more rounds into the same zone of each target. 
+        On the start signal, turn, draw, and place 2 rounds into the largest A zone (or -0 zone) of each target, perform a reload, then place 2 more rounds into the same zone of each target. 
         Targets can be shot from left-to-right or right-to-left at your preference, but all targets must be shot 4 times each at the conclusion of the drill.`,
       recommended_par: [
         {type: 'Standard', par: '10 seconds',},
         {type: 'Challenging', par: '7 or fewer seconds'}
-      ]
+      ],
+      image: ElPresImg
+    },
+    {
+      title: 'Failure To Stop',
+      joke: "Sometimes asking nicely doesn't work out.",
+      dry: true,
+      live: true,
+      moving: false,
+      shot_timer_rec: false,
+      categories: [
+        'recoil_control',
+        'accuracy',
+        'trigger_control'
+      ],
+      recommended_distances: [7, 10],
+      recommended_targets: ['USPSA', 'IDPA'],
+      description: `For live fire, you will need at least 3 rounds in your magazine.
+        Visualization is important for this drill, as part of the goal is to mimic assessing if an immediate threat is still presenting itself.
+        When ready to begin, holster or assume the low-ready position.  
+        On the start signal, draw and place 2 rounds into the largest A zone (or -0 zone) of the target.
+        Assess the target without moving from where you are and, if a threat is still present, fire an additional round into the smallest A / -0 zone of the target.
+        The point of the drill is not to fire 3 shots as fast as possible; the last shot should have a noticeable pause before it is placed.`,
+      recommended_par: [],
+      image: FailureToStop
+    },
+    {
+      title: 'One Handed Bullseye',
+      joke: "Bring out your inner deadeye.",
+      dry: true,
+      live: true,
+      moving: false,
+      shot_timer_rec: false,
+      categories: [
+        'accuracy',
+        'trigger_control'
+      ],
+      recommended_distances: ['Any'],
+      recommended_targets: ['Any'],
+      description: `For live fire, you will need at least 5 rounds in your magazine.
+        There is no time pressure with this drill. 
+        Using only your control hand (the hand pulling the trigger when both hands are otherwise in use), make a 5 round group in as tight a cluster as you can.
+        Take your time and focus on exactly what the trigger on your firearm feels like; 
+        you want to be able to feel each stage of the trigger pull itself: 
+        take up, the wall, creep, the break, over travel, and the reset.`,
+      recommended_par: [],
+      image: null
+    },
+    {
+      title: 'Support Hand One Handed Bullseye',
+      joke: "Support hands need love too.",
+      dry: true,
+      live: true,
+      moving: false,
+      shot_timer_rec: false,
+      categories: [
+        'accuracy',
+        'trigger_control'
+      ],
+      recommended_distances: ['Any'],
+      recommended_targets: ['Any'],
+      description: `For live fire, you will need at least 5 rounds in your magazine.
+        There is no time pressure with this drill. 
+        Using only your support hand (the hand not pulling the trigger when both hands are otherwise in use), make a 5 round group in as tight a cluster as you can.
+        Take your time and focus on exactly what the trigger on your firearm feels like; 
+        you want to be able to feel each stage of the trigger pull itself: 
+        take up, the wall, creep, the break, over travel, and the reset.`,
+      recommended_par: [],
+      image: null
     },
   ]);
 
@@ -272,6 +354,9 @@
                   <v-col v-for="(t, i) in selected_drill.recommended_par" :key="i" cols="12" class="text-subtitle-2 py-0">
                     {{t.type + ": " + t.par}}
                   </v-col>
+                </v-row>
+                <v-row justify="center" v-if="selected_drill.image != null">
+                  <v-img :src="selected_drill.image" max-height="500px" max-width="100%"></v-img>
                 </v-row>
               </v-card-text>
             </div>
