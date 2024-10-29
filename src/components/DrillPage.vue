@@ -22,9 +22,11 @@
       ],
       recommended_distances: [5, 7, 10],
       recommended_targets: ['IPSC', 'USPSA'],
-      description: `For live fire, you will need at least 6 rounds in your magazine. 
+      dry_description: `When ready to begin, holster or assume the low-ready position. 
+        On the start signal, draw and and simulate firing 6 rounds into the largest A zone (or -0 zone) of your target as quickly and accurately as possible.`,
+      live_description: `You will need at least 6 rounds in your magazine. 
         When ready to begin, holster or assume the low-ready position. 
-        On the start signal, draw and place 6 rounds into the largest A zone (or -0 zone) of your target as quickly and accurately as possible.`,
+        On the start signal, draw and fire 6 rounds into the largest A zone (or -0 zone) of your target as quickly and accurately as possible.`,
       recommended_par: [
         {type: 'Standard', par: '3.5 seconds',},
         {type: 'Challenging', par: '2.5 or fewer seconds'}
@@ -44,9 +46,13 @@
       ],
       recommended_distances: [10],
       recommended_targets: ['B8'],
-      description: `For live fire, you will need at least 10 rounds in your magazine. 
+      dry_description: `When ready to begin, holster or assume the low-ready position. 
+        On the start signal, draw and simulate firing 10 rounds into the target. 
+        All shots need to occur inside the 10 second time limit. 
+        Focus on maintaining your sight picture and keeping it in the black rings of the target`,
+      live_description: `You will need at least 10 rounds in your magazine. 
         When ready to begin, holster or assume the low-ready position. 
-        On the start signal, draw and place 10 shots on the target. 
+        On the start signal, draw and fire 10 rounds into the target. 
         All shots need to occur inside the 10 second time limit. Score hits as shown on the target.`,
       recommended_par: [
         {type: 'Standard', par: 'Score 80 points or better',},
@@ -67,10 +73,10 @@
       ],
       recommended_distances: ['Any'],
       recommended_targets: ['Any'],
-      description: `Using a shot timer or another signaling method, with no par time, pull the trigger as quickly as possible at the signal. 
+      dry_description: `Using a shot timer or another signaling method, with no par time, pull the trigger as quickly as possible at the signal. 
         The goal of this drill is working on getting a smooth trigger pull while still maintaining speed. 
         To further isolate the trigger control, do not incorporate a target and focus on your sight alignment; 
-        try not to affect your sight alignment while still pulling the trigger as fast as possible.`,
+        try not to affect your sight alignment at all while still pulling the trigger as fast as possible.`,
       recommended_par: [],
       image: null
     },
@@ -86,11 +92,14 @@
       ],
       recommended_distances: [5, 7, 10, 15],
       recommended_targets: ['USPSA', 'IDPA'],
-      description: `You will need 2 magazines for this drill. 
-        For live fire, load both magazines with 1 round each. 
-        For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. 
+      dry_description: `You will need 2 magazines for this drill. 
+        If you intend to use dummy rounds: load 1 magazine with 1 dummy round, then insert the other magazine. 
+        When ready to begin, lock the action open, then holster or assume the low-ready position. 
+        On the start signal, draw and simulate firing 1 round into the largest A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then simulate firing another round into the same zone of the target.`,
+      live_description: `You will need 2 magazines for this drill. 
+        Load both magazines with 1 round each. 
         When ready to begin, holster or assume the low-ready position. 
-        On the start signal, draw and place 1 round into the largest A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.`,
+        On the start signal, draw and fire 1 round into the largest A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then fire another round into the same zone of the target.`,
       recommended_par: [
         {type: 'Standard', par: '4.5 seconds',},
         {type: 'Challenging', par: '3.25 or fewer seconds'}
@@ -110,11 +119,14 @@
       ],
       recommended_distances: [5, 7, 10, 15],
       recommended_targets: ['USPSA', 'IDPA'],
-      description: `You will need 2 magazines for this drill. 
-        For live fire, load both magazines with 2 rounds each. 
-        For dry fire, load 1 magazine with 1 dummy round if you intend to use them, then insert the other magazine and lock the action open. 
+      dry_description: `You will need 2 magazines for this drill. 
+        If you intend to use dummy rounds: load 1 magazine with 1 dummy round, then insert the other magazine. 
+        When ready to begin, lock the action open, then holster or assume the low-ready position. 
+        On the start signal, draw and simulate firing 2 rounds into the largest A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then simulate firing 2 additional rounds into the same zone of the target.`,
+      live_description: `You will need 2 magazines for this drill. 
+        Load both magazines with 2 rounds each. 
         When ready to begin, holster or assume the low-ready position. 
-        On the start signal, draw and place 1 round into the largest A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then place another round into the same target zone.`,
+        On the start signal, draw and fire 2 rounds into the largest A zone (or -0 zone) of the target, then drop the current magazine and perform a reload, then fire 2 the next two rounds into the same zone of the target.`,
       recommended_par: [
         {type: 'Standard', par: '5 seconds',},
         {type: 'Challenging', par: '3.75 or fewer seconds'}
@@ -134,12 +146,18 @@
       ],
       recommended_distances: [5, 7, 10],
       recommended_targets: ['USPSA', 'IDPA'],
-      description: `You will need 2 targets for this drill. 
-        Set your targets up so that they require you make an approximate 90 degree turn to engage whichever target you are not facing; for dry fire, using the corner of a room will help accomplish this. 
-        For live fire, you will need at least 4 rounds in your magazine; ensure that downrange of both targets and the space between them is safe for this drill before proceeding. 
+      dry_description: `You will need 2 targets for this drill. 
+        Set your targets up so that they require you make an approximate 90 degree turn to engage whichever target you are not facing; using the corner of a room will help accomplish this. 
         When ready to begin, assume the low-ready position. 
-        On the start signal, place 2 rounds into the largest A zone (or -0 zone) of the first target, then turn and engage the second target in the same manner. 
-        Alternate which target you engage first.`,
+        On the start signal, simulate firing 2 rounds into the largest A zone (or -0 zone) of the first target, then turn and engage the second target in the same manner. 
+        Alternate which target you engage first on subsequent runs of the drill.`,
+      live_description: `You will need 2 targets for this drill. 
+        Set your targets up so that they require you make an approximate 90 degree turn to engage whichever target you are not facing. 
+        Ensure that downrange of both targets and the space between them is safe for this drill before proceeding.
+        You will need at least 4 rounds in your magazine. 
+        When ready to begin, assume the low-ready position. 
+        On the start signal, fire 2 rounds into the largest A zone (or -0 zone) of the first target, then turn and engage the second target in the same manner. 
+        Alternate which target you engage first on subsequent runs of the drill.`,
       recommended_par: [
         {type: 'Standard', par: '2.5 seconds',},
         {type: 'Challenging', par: '1.75 or fewer seconds'}
@@ -160,12 +178,17 @@
       ],
       recommended_distances: [7, 10],
       recommended_targets: ['USPSA', 'IDPA'],
-      description: `You will need 3 targets and 2 magazines for this drill. 
+      dry_description: `You will need 3 targets and 2 magazines for this drill. 
         Set your targets up so that they are parallel to the firing line and approximately one yard apart from each other. 
-        For live fire, load your magazines so that each one contains 6 rounds.
-        When ready to begin, holster, face away from the targets, and raise your hands a few inches above your head (the surrender position). 
-        On the start signal, turn, draw, and place 2 rounds into the largest A zone (or -0 zone) of each target, perform a reload, then place 2 more rounds into the same zone of each target. 
-        Targets can be shot from left-to-right or right-to-left at your preference, but all targets must be shot 4 times each at the conclusion of the drill.`,
+        When ready to begin, lock th action open, holster, face away from the targets, then raise your hands a few inches above your head (the surrender position). 
+        On the start signal, turn, draw, and simulate firing 2 rounds into the largest A zone (or -0 zone) of each target, perform a reload, then simulate firing 2 more rounds into the same zone of each target. 
+        Targets can be engaged from left-to-right or right-to-left at your preference.`,
+      live_description: `You will need 3 targets and 2 magazines for this drill. 
+        Set your targets up so that they are parallel to the firing line and approximately one yard apart from each other. 
+        Load your magazines so that each one contains 6 rounds.
+        When ready to begin, holster, face away from the targets, then raise your hands a few inches above your head (the surrender position). 
+        On the start signal, turn, draw, and fire 2 rounds into the largest A zone (or -0 zone) of each target, perform a reload, then fire 2 more rounds into the same zone of each target. 
+        Targets can be engaged from left-to-right or right-to-left at your preference, but all targets must be shot 4 times each at the conclusion of the drill.`,
       recommended_par: [
         {type: 'Standard', par: '10 seconds',},
         {type: 'Challenging', par: '7 or fewer seconds'}
@@ -186,10 +209,15 @@
       ],
       recommended_distances: [7, 10],
       recommended_targets: ['USPSA', 'IDPA'],
-      description: `For live fire, you will need at least 3 rounds in your magazine.
+      dry_description: `Visualization is important for this drill, as part of the goal is to mimic assessing if an immediate threat is still presenting itself.
+        When ready to begin, holster or assume the low-ready position.  
+        On the start signal, draw and simulate firing 2 rounds into the largest A zone (or -0 zone) of the target.
+        Assess the target without moving from where you are and, if a threat is still present, simulate firing an additional round into the smallest A / -0 zone of the target.
+        The point of the drill is not to fire 3 shots as fast as possible; the last shot should have a noticeable pause before it is placed.`,
+      live_description: `You will need at least 3 rounds in your magazine.
         Visualization is important for this drill, as part of the goal is to mimic assessing if an immediate threat is still presenting itself.
         When ready to begin, holster or assume the low-ready position.  
-        On the start signal, draw and place 2 rounds into the largest A zone (or -0 zone) of the target.
+        On the start signal, draw and fire 2 rounds into the largest A zone (or -0 zone) of the target.
         Assess the target without moving from where you are and, if a threat is still present, fire an additional round into the smallest A / -0 zone of the target.
         The point of the drill is not to fire 3 shots as fast as possible; the last shot should have a noticeable pause before it is placed.`,
       recommended_par: [],
@@ -208,9 +236,14 @@
       ],
       recommended_distances: ['Any'],
       recommended_targets: ['Any'],
-      description: `For live fire, you will need at least 5 rounds in your magazine.
+      dry_description: `There is no time pressure with this drill. 
+        Using only your control hand (the hand pulling the trigger when both hands are otherwise in use), simluate firing a 5 round group in as tight a cluster as you can.
+        Take your time and focus on exactly what the trigger on your firearm feels like; 
+        you want to be able to feel each stage of the trigger pull itself: 
+        take up, the wall, creep, the break, over travel, and the reset.`,
+      live_description: `You will need at least 5 rounds in your magazine.
         There is no time pressure with this drill. 
-        Using only your control hand (the hand pulling the trigger when both hands are otherwise in use), make a 5 round group in as tight a cluster as you can.
+        Using only your control hand (the hand pulling the trigger when both hands are otherwise in use), fire a 5 round group in as tight a cluster as you can.
         Take your time and focus on exactly what the trigger on your firearm feels like; 
         you want to be able to feel each stage of the trigger pull itself: 
         take up, the wall, creep, the break, over travel, and the reset.`,
@@ -230,9 +263,14 @@
       ],
       recommended_distances: ['Any'],
       recommended_targets: ['Any'],
-      description: `For live fire, you will need at least 5 rounds in your magazine.
+      dry_description: `There is no time pressure with this drill. 
+        Using only your support hand (the hand not pulling the trigger when both hands are otherwise in use), simulate firing a 5 round group in as tight a cluster as you can.
+        Take your time and focus on exactly what the trigger on your firearm feels like; 
+        you want to be able to feel each stage of the trigger pull itself: 
+        take up, the wall, creep, the break, over travel, and the reset.`,
+      live_description: `For live fire, you will need at least 5 rounds in your magazine.
         There is no time pressure with this drill. 
-        Using only your support hand (the hand not pulling the trigger when both hands are otherwise in use), make a 5 round group in as tight a cluster as you can.
+        Using only your support hand (the hand not pulling the trigger when both hands are otherwise in use), fire a 5 round group in as tight a cluster as you can.
         Take your time and focus on exactly what the trigger on your firearm feels like; 
         you want to be able to feel each stage of the trigger pull itself: 
         take up, the wall, creep, the break, over travel, and the reset.`,
@@ -312,8 +350,11 @@
           <v-expand-transition>
             <div v-show="show_explaination">
               <v-divider></v-divider>
-              <v-card-text class="text-subtitle-1">
-                {{selected_drill.description}}
+              <v-card-text v-if="user_store.selections.dry_vs_live == 'dry'" class="text-subtitle-1">
+                {{selected_drill.dry_description}}
+              </v-card-text>
+              <v-card-text v-else class="text-subtitle-1">
+                {{selected_drill.live_description}}
               </v-card-text>
               <v-divider></v-divider>
               <v-card-text>
