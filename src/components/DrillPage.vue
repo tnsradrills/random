@@ -18,9 +18,7 @@
       shot_timer_rec: true,
       categories: [
         'recoil_control',
-        'draw_speed',
-        'time_pressure',
-        'draw_speed',
+        'accuracy'
       ],
       recommended_distances: [5, 7, 10],
       recommended_targets: ['IPSC', 'USPSA'],
