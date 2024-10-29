@@ -83,7 +83,6 @@
       shot_timer_rec: true,
       categories: [
         'reloads',
-        'draw_speed'
       ],
       recommended_distances: [5, 7, 10, 15],
       recommended_targets: ['USPSA', 'IDPA'],
@@ -256,11 +255,6 @@
       // Check category compatibility
       const isCategoryCompatible = user_store.selections.category_selections.some(value => d.categories.includes(value));
 
-      // Return true if all conditions are met
-      console.log(d);
-      console.log(isTypeCompatible);
-      console.log(isMovementCompatible);
-      console.log(isCategoryCompatible);
       return isTypeCompatible && isMovementCompatible && isCategoryCompatible;
     });
 
