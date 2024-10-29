@@ -41,8 +41,6 @@
       categories: [
         'accuracy',
         'recoil_control',
-        'draw_speed',
-        'time_pressure'
       ],
       recommended_distances: [10],
       recommended_targets: ['B8'],
@@ -65,7 +63,6 @@
       shot_timer_rec: false,
       categories: [
         'accuracy',
-        'time_pressure',
         'trigger_control'
       ],
       recommended_distances: ['Any'],
@@ -85,7 +82,6 @@
       moving: false,
       shot_timer_rec: true,
       categories: [
-        'time_pressure',
         'reloads',
         'draw_speed'
       ],
@@ -110,7 +106,6 @@
       moving: false,
       shot_timer_rec: true,
       categories: [
-        'time_pressure',
         'reloads',
         'recoil_control',
       ],
