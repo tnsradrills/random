@@ -7,7 +7,6 @@
   import NinetyDeg from '@/assets/images/90_deg_transitions.png';
   import FailureToStop from '@/assets/images/failure_to_stop.jpg';
   const user_store = userSelectionStore();
-  const show_explaination = ref(false);
   const drills = ref([
     {
       title: 'Bill Drill',
@@ -322,33 +321,12 @@
       <v-col cols="12">
         <v-card elevation="5">
           <v-card-title style="font-family: Orbitron;">{{selected_drill.title}}</v-card-title>
-          <v-card-subtitle>
+          <v-card-subtitle class="pb-3">
             {{selected_drill.joke}}
           </v-card-subtitle>
 
-          <v-card-actions>
-            <v-btn
-              outlined
-              rounded
-              class="border"
-              color="primary"
-               @click="show_explaination = !show_explaination"
-            >
-              Details
-            </v-btn>
-
-            <v-spacer></v-spacer>
-
-            <v-btn
-              icon
-              @click="show_explaination = !show_explaination"
-            >
-              <v-icon>{{ show_explaination ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-            </v-btn>
-          </v-card-actions>
-
           <v-expand-transition>
-            <div v-show="show_explaination">
+            <div v-show="true">
               <v-divider></v-divider>
               <v-card-text v-if="user_store.selections.dry_vs_live == 'dry'" class="text-subtitle-1">
                 {{selected_drill.dry_description}}
