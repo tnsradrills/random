@@ -363,9 +363,14 @@ onMounted(() => {
     <v-row v-if="selected_drill != null">
       <v-col cols="12">
         <v-card elevation="5">
-          <v-card-title style="font-family: Orbitron">{{
-            selected_drill.title
-          }}</v-card-title>
+          <v-card-title
+            style="
+              font-family: Orbitron;
+              text-overflow: inherit;
+              white-space: inherit;
+            "
+            >{{ selected_drill.title }}</v-card-title
+          >
           <v-card-subtitle class="pb-3">
             {{ selected_drill.joke }}
           </v-card-subtitle>
