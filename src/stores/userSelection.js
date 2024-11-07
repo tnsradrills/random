@@ -17,7 +17,6 @@ export const userSelectionStore = defineStore('userSelection', () => {
   };
 
   const attempt_next_step = () => {
-    console.log(step_counter.value)
     switch (step_counter.value) {
       case 1: 
         if (selections.dry_vs_live != null) {
