@@ -250,7 +250,7 @@ const drills = ref([
   },
   {
     title: "Immediate Action Malfunction Clearing",
-    joke: "Hitting the reset button",
+    joke: "Hitting the reset button.",
     dry: true,
     live: true,
     moving: false,
@@ -279,7 +279,7 @@ const drills = ref([
   },
   {
     title: "Remedial Action Malfunction Clearing",
-    joke: "Rip, reload, rack, bang",
+    joke: "Rip, reload, rack, bang.",
     dry: true,
     live: true,
     moving: false,
